@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weatherapp/data/api/weather_api.dart';
+import 'package:weatherapp/data/repository/weather_repo.dart';
+import 'package:weatherapp/provider/home/home_provider.dart';
 import 'package:weatherapp/provider/main/main_provider.dart';
 import 'package:weatherapp/screens/main/main_screen.dart';
 
@@ -16,6 +19,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => MainProvider()),
+        Provider(create: (context) => WeatherApi()),
+        Provider(create:(context) => WeatherRepo(context.read<WeatherApi>())),
+        ChangeNotifierProvider(create: (context) => HomeProvider(context.read<WeatherRepo>()))
+
       ],
       child: MaterialApp(
       title: 'weatherApp',
