@@ -12,7 +12,7 @@ class HomeProvider  with ChangeNotifier{
   CurrentModel? current;
   bool loading =false;
   HomeProvider(this.repo){
-    getCurrentWeather('london');
+    getCurrentWeather('Faisalabad');
   }
 
   getCurrentWeather(String city)async{
@@ -25,7 +25,7 @@ class HomeProvider  with ChangeNotifier{
         location = res.location;
         current = res.current;
       }
-
+      print(res);
       loading = false;
       notifyListeners();
    }

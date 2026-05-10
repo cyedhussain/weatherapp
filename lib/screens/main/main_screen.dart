@@ -27,6 +27,9 @@ class _MainScreenState extends State<MainScreen> {
       final provider = context.watch<MainProvider>();
 
     return Scaffold(
+      appBar: AppBar(
+       
+      ),
       body: widgets[provider.currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: provider.currentIndex,

@@ -11,8 +11,40 @@ class HomeScreen extends StatelessWidget {
       builder: (context, provider , child ){
         return provider.loading? Center(child: CircularProgressIndicator(),) : Column(
           children: [
-            Text(provider.location?.country?? 'no data')
-          ],
+            ListTile(
+              title: Text('Name'),
+              trailing: Text(provider.location?.name?? " "),
+            ),
+            ListTile(
+              title: Text('Region'),
+              trailing: Text(provider.location?.region?? ""),
+            ),
+            ListTile(
+              title: Text('Country'),
+              trailing: Text(provider.location?.country?? ""),
+            ),
+
+            Divider(),
+
+            ListTile(
+              title: Text('Temperature (c)'),
+              trailing: Text(provider.current?.tempC.toString()?? ""),
+            ),
+            ListTile(
+              title: Text('Condition'),
+              trailing: Text(provider.current?.condition?.text?? ""),
+              leading: Image.network(provider.current?.condition?.icon?.replaceFirst('//', 'https://') ?? ""),
+            ),
+            ListTile(
+              title: Text('Wind Speed'),
+              trailing: Text(provider.current?.windKph.toString()?? ""),
+            ),
+            ListTile(
+              title: Text('Clouds'),
+              trailing: Text(provider.current?.cloud.toString()?? ""),
+            )
+          ]
+          
         );
       }
     );

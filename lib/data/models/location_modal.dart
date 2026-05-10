@@ -2,10 +2,10 @@ class LocationModel {
   String? name;
   String? region;
   String? country;
-  double? lat;
-  double? lon;
+  num? lat;
+  num? lon;
   String? tzId;
-  int? localtimeEpoch;
+  num? localtimeEpoch;
   String? localtime;
 
   LocationModel(
