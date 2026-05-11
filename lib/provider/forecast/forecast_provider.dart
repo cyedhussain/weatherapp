@@ -14,7 +14,7 @@ class ForecastProvider with ChangeNotifier{
   getForecast()async{
     loading = true;
     notifyListeners();
-    forecastDays = await repo.getForecast("Faisalabad", 3);
+    forecastDays = await repo.getForecast("Faisalabad", 2);
     loading = false;
     notifyListeners();
   }
