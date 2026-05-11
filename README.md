@@ -30,31 +30,33 @@ It provides real-time weather updates, search functionality, and multi-day forec
 
 ## 📸 Screenshots
 
-## 📸 Screenshots
-
-<table align="center">
-  <tr>
+<table align="center" cellspacing="20" cellpadding="10">
+  <tr align="center">
     <th>Home Screen</th>
     <th>Search Screen</th>
-    <th>Forecast Screen</th>
-    <th>Details Screen</th>
+    <th>City View</th>
+    <th>Forecast</th>
   </tr>
 
   <tr align="center">
     <td>
-      <img src="https://github.com/user-attachments/assets/e6e2e31d-c93d-4182-a56a-3b3c707f0461" width="200"/>
+      <img src="https://github.com/user-attachments/assets/6d68be57-2a1f-431e-a542-aa5d40f0ad92" width="200"/>
     </td>
 
     <td>
-      <img src="https://github.com/user-attachments/assets/0fdd073a-56c2-471a-9392-d5df82f9446b" width="200"/>
+      <img src="https://github.com/user-attachments/assets/2a476467-0c79-4252-860b-b7ceb3b9b404" width="200"/>
     </td>
 
     <td>
-      <img src="https://github.com/user-attachments/assets/2fa4e428-584d-44da-acc3-31070a49a060" width="200"/>
+      <img src="https://github.com/user-attachments/assets/c30716e0-dba2-4796-8aa1-1252efd0b7aa" width="200"/>
     </td>
 
     <td>
-      <img src="https://github.com/user-attachments/assets/adecc095-9913-4ea2-8b81-3e687d34f03a" width="200"/>
+      <img src="https://github.com/user-attachments/assets/c8435879-5954-43df-b7c5-ebee03552c9a" width="200"/>
     </td>
   </tr>
 </table>
+
+
+
+
