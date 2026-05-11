@@ -6,7 +6,7 @@ import 'package:weatherapp/data/models/hours_model.dart';
 
 class ForecastdayModel {
   String? date;
-  int? dateEpoch;
+  num? dateEpoch;
   DayModel? day;
   AstroModel? astro;
   List<HourModel>? hour;

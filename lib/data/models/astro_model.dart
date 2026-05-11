@@ -6,9 +6,9 @@ class AstroModel {
   String? moonrise;
   String? moonset;
   String? moonPhase;
-  int? moonIllumination;
-  int? isMoonUp;
-  int? isSunUp;
+  num? moonIllumination;
+  num? isMoonUp;
+  num? isSunUp;
 
   AstroModel(
       {this.sunrise,

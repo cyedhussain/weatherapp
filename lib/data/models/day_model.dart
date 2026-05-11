@@ -4,26 +4,26 @@
 import 'package:weatherapp/data/models/condition_model.dart';
 
 class DayModel {
-  double? maxtempC;
-  double? maxtempF;
-  double? mintempC;
-  double? mintempF;
-  double? avgtempC;
-  double? avgtempF;
-  double? maxwindMph;
-  double? maxwindKph;
-  int? totalprecipMm;
-  int? totalprecipIn;
-  int? totalsnowCm;
-  int? avgvisKm;
-  int? avgvisMiles;
-  int? avghumidity;
-  int? dailyWillItRain;
-  int? dailyChanceOfRain;
-  int? dailyWillItSnow;
-  int? dailyChanceOfSnow;
+  num? maxtempC;
+  num? maxtempF;
+  num? mintempC;
+  num? mintempF;
+  num? avgtempC;
+  num? avgtempF;
+  num? maxwindMph;
+  num? maxwindKph;
+  num? totalprecipMm;
+  num? totalprecipIn;
+  num? totalsnowCm;
+  num? avgvisKm;
+  num? avgvisMiles;
+  num? avghumidity;
+  num? dailyWillItRain;
+  num? dailyChanceOfRain;
+  num? dailyWillItSnow;
+  num? dailyChanceOfSnow;
   ConditionModel? condition;
-  double? uv;
+  num? uv;
 
   DayModel(
       {this.maxtempC,
