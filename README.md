@@ -30,33 +30,31 @@ It provides real-time weather updates, search functionality, and multi-day forec
 
 ## 📸 Screenshots
 
-<table align="center" cellspacing="20" cellpadding="10">
-  <tr align="center">
-    <th>Home Screen</th>
-    <th>Search Screen</th>
-    <th>City View</th>
-    <th>Forecast</th>
-  </tr>
+<h2 align="center">📸 Weather App Screenshots</h2>
 
-  <tr align="center">
-    <td>
-      <img src="https://github.com/user-attachments/assets/6d68be57-2a1f-431e-a542-aa5d40f0ad92" width="200"/>
-    </td>
+<p align="center">
+  <b>Modern Flutter Weather App with Provider State Management</b>
+</p>
 
-    <td>
-      <img src="https://github.com/user-attachments/assets/2a476467-0c79-4252-860b-b7ceb3b9b404" width="200"/>
-    </td>
+<br/>
 
-    <td>
-      <img src="https://github.com/user-attachments/assets/c30716e0-dba2-4796-8aa1-1252efd0b7aa" width="200"/>
-    </td>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6d68be57-2a1f-431e-a542-aa5d40f0ad92" width="230"/>
+  &nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/2a476467-0c79-4252-860b-b7ceb3b9b404" width="230"/>
+</p>
 
-    <td>
-      <img src="https://github.com/user-attachments/assets/c8435879-5954-43df-b7c5-ebee03552c9a" width="200"/>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c30716e0-dba2-4796-8aa1-1252efd0b7aa" width="230"/>
+  &nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/c8435879-5954-43df-b7c5-ebee03552c9a" width="230"/>
+</p>
 
+<br/>
+
+<p align="center">
+  <i>✨ Home • Search • City Weather • Forecast</i>
+</p>
 
 
 
