@@ -39,7 +39,8 @@ It provides real-time weather updates, search functionality, and multi-day forec
 
   <tr>
     <td>
-      <img src=""https://github.com/user-attachments/assets/94b8c8ed-178c-4a23-9d16-bcadac308be9"" width="200"/>
+
+      <img src="https://github.com/user-attachments/assets/e6e2e31d-c93d-4182-a56a-3b3c707f0461" width="200"/>
     </td>
     <td>
       <img src="https://github.com/user-attachments/assets/0fdd073a-56c2-471a-9392-d5df82f9446b" width="200"/>
