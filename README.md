@@ -30,25 +30,28 @@ It provides real-time weather updates, search functionality, and multi-day forec
 
 ## 📸 Screenshots
 
-<table>
+## 📸 Screenshots
+
+<table align="center">
   <tr>
     <th>Home Screen</th>
     <th>Search Screen</th>
     <th>Forecast Screen</th>
+    <th>Details Screen</th>
   </tr>
 
-  <tr>
+  <tr align="center">
     <td>
-
       <img src="https://github.com/user-attachments/assets/e6e2e31d-c93d-4182-a56a-3b3c707f0461" width="200"/>
     </td>
+
     <td>
       <img src="https://github.com/user-attachments/assets/0fdd073a-56c2-471a-9392-d5df82f9446b" width="200"/>
     </td>
-     <td>
+
+    <td>
       <img src="https://github.com/user-attachments/assets/2fa4e428-584d-44da-acc3-31070a49a060" width="200"/>
     </td>
-
 
     <td>
       <img src="https://github.com/user-attachments/assets/adecc095-9913-4ea2-8b81-3e687d34f03a" width="200"/>
