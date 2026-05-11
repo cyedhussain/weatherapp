@@ -5,6 +5,8 @@ import 'package:weatherapp/data/repository/weather_repo.dart';
 import 'package:weatherapp/provider/forecast/forecast_provider.dart';
 import 'package:weatherapp/provider/home/home_provider.dart';
 import 'package:weatherapp/provider/main/main_provider.dart';
+import 'package:weatherapp/provider/search/search_provider.dart';
+import 'package:weatherapp/provider/weather/weather_provider.dart';
 import 'package:weatherapp/screens/main/main_screen.dart';
 
 void main() {
@@ -23,7 +25,9 @@ class MyApp extends StatelessWidget {
         Provider(create: (context) => WeatherApi()),
         Provider(create:(context) => WeatherRepo(context.read<WeatherApi>())),
         ChangeNotifierProvider(create: (context) => HomeProvider (context.read<WeatherRepo>())),
-        ChangeNotifierProvider(create: (context) => ForecastProvider (context.read<WeatherRepo>()))
+        ChangeNotifierProvider(create: (context) => ForecastProvider (context.read<WeatherRepo>())),
+        ChangeNotifierProvider(create: (context) => SearchProvider (context.read<WeatherRepo>())),
+        ChangeNotifierProvider(create: (context) => WeatherProvider (context.read<WeatherRepo>())),
 
       ],
       child: MaterialApp(

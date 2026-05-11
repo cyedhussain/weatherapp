@@ -17,7 +17,7 @@ class WeatherRepo {
       return forecastDays;
   }
 
-  Future<List<SearchModel>> getRegion(String city) async{
+  Future<List<SearchModel>> searchRegions(String city) async{
         List<SearchModel> items  = await api.searchRegion(city);
         return items;
   }

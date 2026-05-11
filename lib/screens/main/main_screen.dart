@@ -14,35 +14,66 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-
-  List<Widget> widgets =[
+  final List<Widget> widgets = [
     HomeScreen(),
     SearchScreen(),
     ForecastScreen(),
-
   ];
 
   @override
   Widget build(BuildContext context) {
-      final provider = context.watch<MainProvider>();
+    final provider = context.watch<MainProvider>();
 
     return Scaffold(
-      appBar: AppBar(
-       
-      ),
+      backgroundColor: const Color(0xffF4F9FF),
+
       body: widgets[provider.currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: provider.currentIndex,
-        onTap: (index) {
-          provider.changeIndex(index);
-        },
-        iconSize: 28,
-        items: [
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: 'home'),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.search) ,label: 'search'),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.cloud_fog),label: 'forecast')
-        ]
+
+      /// MODERN BOTTOM NAVIGATION
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.all(15),
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 15,
+              offset: const Offset(0, 5),
+            ),
+          ],
         ),
+
+        child: BottomNavigationBar(
+          currentIndex: provider.currentIndex,
+          onTap: (index) {
+            provider.changeIndex(index);
+          },
+
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.grey,
+          showUnselectedLabels: true,
+          type: BottomNavigationBarType.fixed,
+
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.cloud_fog),
+              label: 'Forecast',
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weatherapp/provider/home/home_provider.dart';
+import 'package:weatherapp/data/models/search_model.dart';
+import 'package:weatherapp/provider/weather/weather_provider.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class WeatherScreen extends StatefulWidget {
+  final SearchModel item;
+
+  const WeatherScreen({super.key, required this.item});
+
+  @override
+  State<WeatherScreen> createState() => _WeatherScreenState();
+}
+
+class _WeatherScreenState extends State<WeatherScreen> {
+  @override
+  void initState() {
+    context
+        .read<WeatherProvider>()
+        .getCurrentWeather(widget.item.name ?? "");
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(
+    return Consumer<WeatherProvider>(
       builder: (context, provider, child) {
         return Scaffold(
           backgroundColor: const Color(0xffF4F9FF),
@@ -20,49 +36,50 @@ class HomeScreen extends StatelessWidget {
                   child: SingleChildScrollView(
                     padding: const EdgeInsets.all(20),
                     child: Column(
-                      crossAxisAlignment:
-                          CrossAxisAlignment.start,
                       children: [
 
-                        /// HEADER
+                        /// TOP BAR
                         Row(
                           mainAxisAlignment:
                               MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  "Today's Weather",
-                                  style: TextStyle(
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black87,
-                                  ),
-                                ),
-
-                                const SizedBox(height: 5),
-
-                                Text(
-                                  "${provider.location?.name ?? ""}, ${provider.location?.country ?? ""}",
-                                  style: const TextStyle(
-                                    color: Colors.black54,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ],
-                            ),
-
                             Container(
-                              padding: const EdgeInsets.all(12),
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius:
-                                    BorderRadius.circular(18),
+                                    BorderRadius.circular(15),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Icon(
+                                  Icons.arrow_back_ios_new,
+                                  color: Colors.black87,
+                                  size: 20,
+                                ),
+                              ),
+                            ),
+
+                            const Text(
+                              "Weather",
+                              style: TextStyle(
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.circular(15),
                               ),
                               child: const Icon(
-                                Icons.notifications_none,
+                                Icons.more_vert,
                                 color: Colors.black87,
                               ),
                             ),
@@ -71,15 +88,15 @@ class HomeScreen extends StatelessWidget {
 
                         const SizedBox(height: 30),
 
-                        /// MAIN WEATHER CARD
+                        /// MAIN CARD
                         Container(
                           width: double.infinity,
-                          padding: const EdgeInsets.all(30),
+                          padding: const EdgeInsets.all(25),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
                             gradient: const LinearGradient(
                               colors: [
-                                Color(0xff8EC5FC),
+                                Color(0xff87CEFA),
                                 Color(0xff4A90E2),
                               ],
                               begin: Alignment.topLeft,
@@ -97,22 +114,43 @@ class HomeScreen extends StatelessWidget {
                           child: Column(
                             children: [
 
+                              Text(
+                                provider.location?.name ?? "",
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+
+                              const SizedBox(height: 5),
+
+                              Text(
+                                "${provider.location?.region ?? ""}, ${provider.location?.country ?? ""}",
+                                style: const TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 16,
+                                ),
+                              ),
+
+                              const SizedBox(height: 25),
+
                               Image.network(
                                 provider.current?.condition?.icon
                                         ?.replaceFirst(
                                             '//', 'https://') ??
                                     "",
-                                height: 130,
+                                height: 120,
                               ),
 
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 15),
 
                               Text(
                                 "${provider.current?.tempC?.toStringAsFixed(0) ?? ""}°C",
                                 style: const TextStyle(
-                                  fontSize: 72,
-                                  fontWeight: FontWeight.bold,
                                   color: Colors.white,
+                                  fontSize: 70,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
 
@@ -120,18 +158,8 @@ class HomeScreen extends StatelessWidget {
                                 provider.current?.condition?.text ??
                                     "",
                                 style: const TextStyle(
-                                  fontSize: 22,
                                   color: Colors.white,
-                                ),
-                              ),
-
-                              const SizedBox(height: 10),
-
-                              Text(
-                                provider.location?.region ?? "",
-                                style: const TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 16,
+                                  fontSize: 22,
                                 ),
                               ),
                             ],
@@ -141,18 +169,21 @@ class HomeScreen extends StatelessWidget {
                         const SizedBox(height: 30),
 
                         /// DETAILS TITLE
-                        const Text(
-                          "Weather Details",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
+                        const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Weather Details",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87,
+                            ),
                           ),
                         ),
 
                         const SizedBox(height: 20),
 
-                        /// FIRST ROW
+                        /// DETAILS CARDS
                         Row(
                           children: [
                             Expanded(
@@ -179,7 +210,6 @@ class HomeScreen extends StatelessWidget {
 
                         const SizedBox(height: 15),
 
-                        /// SECOND ROW
                         Row(
                           children: [
                             Expanded(
@@ -227,15 +257,15 @@ class HomeScreen extends StatelessWidget {
             color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
             offset: const Offset(0, 5),
-          ),
+          )
         ],
       ),
       child: Column(
         children: [
           Icon(
             icon,
-            size: 35,
             color: Colors.blue,
+            size: 35,
           ),
 
           const SizedBox(height: 15),
@@ -243,8 +273,8 @@ class HomeScreen extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 16,
               color: Colors.black54,
+              fontSize: 16,
             ),
           ),
 
@@ -253,9 +283,9 @@ class HomeScreen extends StatelessWidget {
           Text(
             value,
             style: const TextStyle(
+              color: Colors.black87,
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
             ),
           ),
         ],
